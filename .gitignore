@@ -1,0 +1,15 @@
+# debug files
+*.DS_Store
+*.vscode/
+*.dSTM/
+
+# output files
+*.out
+
+# object files
+*.o
+*.a
+
+# test files
+tmp/
+build/
