@@ -6,7 +6,7 @@
 #    By: tobeshota <tobeshota@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/12 09:34:52 by tobeshota         #+#    #+#              #
-#    Updated: 2024/09/12 10:55:03 by tobeshota        ###   ########.fr        #
+#    Updated: 2024/09/12 12:36:13 by tobeshota        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ fclean:
 re:		fclean all
 
 format:
+	make format -C test/
 	$(if $(SRCS), clang-format --style=Google -i $(SRCS))
 	$(if $(HEADERS), clang-format --style=Google -i $(HEADERS))
 	$(if $(SHS), shfmt -w $(SHS))
@@ -60,6 +61,6 @@ debug: re
 address: re
 
 test:
-	make -C test/ -f test.mk
+	@ make test -C test/
 
 .PHONY:	all clean fclean re format debug address test

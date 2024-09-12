@@ -10,7 +10,7 @@ TEST(HogeTest, BasicAssertions) {
 
 // Basic Addition Test
 TEST(HogeTest, Addition) {
-    int a = 2;
-    int b = 3;
-    EXPECT_EQ(a + b, 5);
+  int a = 2;
+  int b = 3;
+  EXPECT_EQ(a + b, 5);
 }

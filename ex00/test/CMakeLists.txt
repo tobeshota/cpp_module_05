@@ -9,6 +9,7 @@ include(FetchContent)
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 
 # For Windows: Prevent overriding the parent project's compiler/linker settings
@@ -18,11 +19,30 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
+# includeパスを指定
+include_directories("../")
+# include_directories("../../")
+
 # Specify the test executable
-file(GLOB TEST_SOURCES "srcs/*.cc")
+file(GLOB TEST_SOURCES "srcs/*.cpp")
+file(GLOB SOURCE_FILES "../*.cpp") # Sample.cc を追加
+
 foreach(test_source ${TEST_SOURCES})
   get_filename_component(test_name ${test_source} NAME_WE)
-  add_executable(${test_name} ${test_source})
+  add_executable(${test_name} ${test_source} ${SOURCE_FILES})
   target_link_libraries(${test_name} GTest::gtest_main)
   gtest_discover_tests(${test_name})
 endforeach()
+
+
+# 実行可能ファイルの追加
+# add_executable(SampleTest SampleTest.cc Sample.cc)
+# GoogleTest ライブラリをリンク
+# target_link_libraries(SampleTest ${GTEST_LIBRARIES} pthread)
+
+
+# 実行可能ファイルの追加
+# add_executable(HelloTest HelloTest.cc)
+# GoogleTest ライブラリをリンク
+# target_link_libraries(HelloTest GTest::gtest_main)
+# gtest_discover_tests(HelloTest)
