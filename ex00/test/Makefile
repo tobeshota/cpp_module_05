@@ -12,7 +12,7 @@ test:
 fclean:
 	$(RM) $(BUILD_DIR)
 
-format:
+fmt:
 	$(if $(SRCS), clang-format --style=Google -i $(SRCS))
 
-.PHONY:	test format
+.PHONY:	test fmt
