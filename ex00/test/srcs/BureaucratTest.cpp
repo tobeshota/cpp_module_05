@@ -22,7 +22,7 @@ TEST(BureaucratAttributeTest, gradeTest) {
   EXPECT_EQ(defaultName->getGrade(), DEFAULT_GRADE);
 
   Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
-  EXPECT_EQ(byConstructor->getGrade(), 200);
+  EXPECT_EQ(byConstructor->getGrade(), 20);
   delete byConstructor;
 
   std::unique_ptr<Bureaucrat> byMethod = std::make_unique<Bureaucrat>();

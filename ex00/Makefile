@@ -6,7 +6,7 @@
 #    By: tobeshota <tobeshota@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/12 09:34:52 by tobeshota         #+#    #+#              #
-#    Updated: 2024/09/13 10:25:17 by tobeshota        ###   ########.fr        #
+#    Updated: 2024/09/13 11:03:06 by tobeshota        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ clean:
 	$(RM) $(OBJS_DIR)
 
 fclean:
+	make fclean -C test/
 	$(RM) $(OBJS_DIR) $(NAME)
 
 re:		fclean all
