@@ -15,4 +15,4 @@ fclean:
 fmt:
 	$(if $(SRCS), clang-format --style=Google -i $(SRCS))
 
-.PHONY:	test fmt
+.PHONY:	test fclean fmt
