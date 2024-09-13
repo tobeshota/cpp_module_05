@@ -1,5 +1,6 @@
-テスト項目
+# CPP MODULE 05 TEST
 
+### BureaucratTest
 - [ ] Bureaucratが_nameを持つ
 - [ ] Bureaucratが_gradeを持つ
 - [ ] _gradeが150より大きくなると例外が飛ぶ
