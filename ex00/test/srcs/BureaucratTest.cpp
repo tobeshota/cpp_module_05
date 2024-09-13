@@ -74,3 +74,21 @@ TEST_F(BureaucratTest, GradeOKTest) {
   EXPECT_NO_THROW(bureaucrat->setGradeSafely(LOWEST_POSSIBLE_GRADE));
   EXPECT_NO_THROW(bureaucrat->incrementGrade());  //  初期値(150) - 1
 }
+
+// 標準出力の内容を確認するテスト
+TEST_F(BureaucratTest, InsertionTest) {
+  // 標準出力をキャプチャ開始
+  testing::internal::CaptureStdout();
+
+  // テスト対象の関数を呼び出す
+  std::cout << bureaucrat;
+
+  // 標準出力のキャプチャ結果を取得
+  std::string actual = testing::internal::GetCapturedStdout();
+  // 望まれる標準出力を定義
+  std::string expect = bureaucrat->getName() + ", bureaucrat grade " +
+                       std::to_string(bureaucrat->getGrade()) + "\n";
+
+  // 出力が"hello world"であることを確認
+  EXPECT_EQ(actual, expect);
+}
