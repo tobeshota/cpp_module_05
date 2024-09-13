@@ -1,4 +1,4 @@
-# CPP MODULE 05 TEST
+# CPP MODULE 05 ex00 TEST
 
 ### BureaucratTest
 - [ ] Bureaucratが_nameを持つ
