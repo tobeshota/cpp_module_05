@@ -1,4 +1,6 @@
+# CMakeのバージョンを設定
 cmake_minimum_required(VERSION 3.14)
+# プロジェクト名と使用する言語を設定
 project(my_project)
 
 # GoogleTest requires at least C++14
@@ -21,28 +23,20 @@ include(GoogleTest)
 
 # includeパスを指定
 include_directories("../")
-# include_directories("../../")
 
 # Specify the test executable
-file(GLOB TEST_SOURCES "srcs/*.cpp")
-file(GLOB SOURCE_FILES "../*.cpp") # Sample.cc を追加
+file(GLOB TEST_FILES "srcs/*.cpp")
+file(GLOB SRCS_FILES "../*.cpp")
 
-foreach(test_source ${TEST_SOURCES})
+foreach(test_source ${TEST_FILES})
   get_filename_component(test_name ${test_source} NAME_WE)
-  add_executable(${test_name} ${test_source} ${SOURCE_FILES})
+  add_executable(${test_name} ${test_source} ${SRCS_FILES})
   target_link_libraries(${test_name} GTest::gtest_main)
   gtest_discover_tests(${test_name})
 endforeach()
 
+# add_executable(BureaucratTest srcs/BureaucratTest.cpp ../Bureaucrat.cpp)
+# target_link_libraries(BureaucratTest GTest::gtest_main)
+# gtest_discover_tests(BureaucratTest)
 
-# 実行可能ファイルの追加
-# add_executable(SampleTest SampleTest.cc Sample.cc)
-# GoogleTest ライブラリをリンク
-# target_link_libraries(SampleTest ${GTEST_LIBRARIES} pthread)
-
-
-# 実行可能ファイルの追加
-# add_executable(HelloTest HelloTest.cc)
-# GoogleTest ライブラリをリンク
-# target_link_libraries(HelloTest GTest::gtest_main)
-# gtest_discover_tests(HelloTest)
+# BureaucratTest
