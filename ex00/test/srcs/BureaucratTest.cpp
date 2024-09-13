@@ -26,10 +26,6 @@ TEST(BureaucratAttributeTest, nameTest) {
   Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
   EXPECT_EQ(byConstructor->getName(), "byConstructor");
   delete byConstructor;
-
-  std::unique_ptr<Bureaucrat> byMethod = std::make_unique<Bureaucrat>();
-  byMethod->setName("byMethod");
-  EXPECT_EQ(byMethod->getName(), "byMethod");
 }
 
 // Bureaucratがgradeを持つ

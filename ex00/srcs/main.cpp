@@ -1,10 +1,14 @@
 #include "Bureaucrat.hpp"
 
 int main(void) {
+  Bureaucrat* manA;
+  const std::string name = "you";
+  int grade = 42;
+
   try {
-    Bureaucrat* taro = new Bureaucrat("taro", 151);
-    delete taro;
+    manA = new Bureaucrat("you", grade);
   } catch (std::exception& e) {
     std::cerr << e.what();
   }
+  delete manA;
 }

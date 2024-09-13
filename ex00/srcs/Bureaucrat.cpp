@@ -5,24 +5,20 @@ Bureaucrat::Bureaucrat() : _name(DEFAULT_NAME), _grade(DEFAULT_GRADE) {
             << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) {
-  Bureaucrat::setName(name);
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
   Bureaucrat::setGradeSafely(grade);
   std::cout << "(constructor)Bureaucrat " << _name << " has been created!"
             << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other.getName()) {
   std::cout << "(constructor)ClapTrap Copy constructor called" << std::endl;
   *this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
-  if (this != &other) {
-    _name = other._name;
-    _grade = other._grade;
-  }
+  if (this != &other) this->setGradeSafely(other.getGrade());
   return *this;
 }
 
@@ -31,11 +27,9 @@ Bureaucrat::~Bureaucrat() {
             << std::endl;
 }
 
-std::string Bureaucrat::getName() const { return _name; }
+const std::string Bureaucrat::getName() const { return _name; }
 
 int Bureaucrat::getGrade() const { return _grade; }
-
-void Bureaucrat::setName(const std::string name) { _name = name; }
 
 void Bureaucrat::setGradeSafely(int grade) {
   if (grade < HIGHEST_POSSIBLE_GRADE)
