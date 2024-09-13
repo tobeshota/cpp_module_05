@@ -24,9 +24,17 @@ include(GoogleTest)
 # includeパスを指定
 include_directories("../includes/")
 
-# Specify the test executable
+# cppファイルをビルド対象に加える
 file(GLOB TEST_FILES "srcs/*.cpp")
 file(GLOB SRCS_FILES "../srcs/*.cpp")
+# ただし「main.cpp(main関数が含まれるファイル)」はビルド対象から外す（main関数が含まれるファイルをGoogleTestのソースファイルに用いることができないため）
+list(FILTER TEST_FILES EXCLUDE REGEX "main.cpp")
+list(FILTER SRCS_FILES EXCLUDE REGEX "main.cpp")
+
+# TEST_FILESの内容を標準出力に出力
+message(STATUS "TEST_FILES: ${TEST_FILES}")
+message(STATUS "SRCS_FILES: ${SRCS_FILES}")
+
 foreach(test_source ${TEST_FILES})
   get_filename_component(test_name ${test_source} NAME_WE)
   add_executable(${test_name} ${test_source} ${SRCS_FILES})
