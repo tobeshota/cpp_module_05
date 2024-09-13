@@ -7,7 +7,7 @@ SRCS		=	$(wildcard $(SRCS_DIR)*.cpp)
 test:
 	@ cmake -S . -B build
 	@ cmake --build build
-	@ cd build && ctest
+	@ cd build && ctest --output-on-failure
 
 fclean:
 	$(RM) $(BUILD_DIR)

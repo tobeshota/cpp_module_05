@@ -6,8 +6,8 @@ Bureaucrat::Bureaucrat() : _name(DEFAULT_NAME), _grade(DEFAULT_GRADE) {
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) {
-  _name = name;
-  _grade = grade;
+  Bureaucrat::setName(name);
+  Bureaucrat::setGradeSafely(grade);
   std::cout << "(constructor)Bureaucrat " << _name << " has been created!"
             << std::endl;
 }
@@ -37,4 +37,22 @@ int Bureaucrat::getGrade() const { return _grade; }
 
 void Bureaucrat::setName(const std::string name) { _name = name; }
 
-void Bureaucrat::setGrade(int grade) { _grade = grade; }
+void Bureaucrat::setGradeSafely(int grade) {
+  if (grade < HIGHEST_POSSIBLE_GRADE)
+    throw Bureaucrat::GradeTooHighException();
+  else if (grade > LOWEST_POSSIBLE_GRADE)
+    throw Bureaucrat::GradeTooLowException();
+  _grade = grade;
+}
+
+void Bureaucrat::incrementGrade(void) { setGradeSafely(_grade - 1); }
+
+void Bureaucrat::decrementGrade(void) { setGradeSafely(_grade + 1); }
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+  return GradeTooHighExceptionMSG;
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+  return GradeTooLowExceptionMSG;
+}
