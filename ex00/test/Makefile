@@ -5,7 +5,7 @@ SRCS		=	$(wildcard $(SRCS_DIR)*.cpp)
 test:
 	@ cmake -S . -B build
 	@ cmake --build build
-	@ cd build && ctest	--rerun-failed --output-on-failure
+	@ cd build && ctest
 
 format:
 	$(if $(SRCS), clang-format --style=Google -i $(SRCS))

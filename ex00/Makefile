@@ -6,7 +6,7 @@
 #    By: tobeshota <tobeshota@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/12 09:34:52 by tobeshota         #+#    #+#              #
-#    Updated: 2024/09/12 12:36:13 by tobeshota        ###   ########.fr        #
+#    Updated: 2024/09/13 10:25:17 by tobeshota        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@ NAME		=	a.out
 CC			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors
 RM			=	rm -rf
+SRCS_DIR	=	srcs/
+INCS_DIR	=	includes/
 OBJS_DIR	=	objs/
 
-SRCS		=	$(wildcard *.cpp)
-HEADERS		=	$(wildcard *.hpp)
+SRCS		=	$(wildcard $(SRCS_DIR)*.cpp)
+HEADERS		=	$(wildcard $(INCS_DIR)*.hpp)
 SHS			=	$(wildcard *.sh)
 OBJS		=	$(patsubst %.cpp, $(OBJS_DIR)%.o, $(SRCS))
 
@@ -36,11 +38,11 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $@
+	$(CC) $(FLAGS) -I $(INCS_DIR) $(OBJS) -o $@
 
 $(OBJS_DIR)%.o : %.cpp
 	mkdir -p $(@D)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -I $(INCS_DIR) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS_DIR)

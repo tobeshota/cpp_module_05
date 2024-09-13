@@ -22,21 +22,14 @@ enable_testing()
 include(GoogleTest)
 
 # includeパスを指定
-include_directories("../")
+include_directories("../includes/")
 
 # Specify the test executable
 file(GLOB TEST_FILES "srcs/*.cpp")
-file(GLOB SRCS_FILES "../*.cpp")
-
+file(GLOB SRCS_FILES "../srcs/*.cpp")
 foreach(test_source ${TEST_FILES})
   get_filename_component(test_name ${test_source} NAME_WE)
   add_executable(${test_name} ${test_source} ${SRCS_FILES})
   target_link_libraries(${test_name} GTest::gtest_main)
   gtest_discover_tests(${test_name})
 endforeach()
-
-# add_executable(BureaucratTest srcs/BureaucratTest.cpp ../Bureaucrat.cpp)
-# target_link_libraries(BureaucratTest GTest::gtest_main)
-# gtest_discover_tests(BureaucratTest)
-
-# BureaucratTest

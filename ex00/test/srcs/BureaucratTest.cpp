@@ -3,21 +3,29 @@
 #include "Bureaucrat.hpp"
 
 // Bureaucratがnameを持つ
-TEST(BureaucratTest, nameTest) {
+TEST(BureaucratAttributeTest, nameTest) {
   std::unique_ptr<Bureaucrat> defaultName = std::make_unique<Bureaucrat>();
   EXPECT_EQ(defaultName->getName(), DEFAULT_NAME);
 
-  Bureaucrat* NamedByConstructor = new Bureaucrat("NamedByConstructor", 20);
-  EXPECT_EQ(NamedByConstructor->getName(), "NamedByConstructor");
-  delete NamedByConstructor;
+  Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
+  EXPECT_EQ(byConstructor->getName(), "byConstructor");
+  delete byConstructor;
 
-  std::unique_ptr<Bureaucrat> NamedbyMethod = std::make_unique<Bureaucrat>();
-  NamedbyMethod->setName("NamedByConstructor");
-  EXPECT_EQ(NamedbyMethod->getName(), "NamedByConstructor");
+  std::unique_ptr<Bureaucrat> byMethod = std::make_unique<Bureaucrat>();
+  byMethod->setName("byMethod");
+  EXPECT_EQ(byMethod->getName(), "byMethod");
 }
 
 // Bureaucratがgradeを持つ
-TEST(BureaucratTest, gradeTest) {
+TEST(BureaucratAttributeTest, gradeTest) {
   std::unique_ptr<Bureaucrat> defaultName = std::make_unique<Bureaucrat>();
   EXPECT_EQ(defaultName->getGrade(), DEFAULT_GRADE);
+
+  Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
+  EXPECT_EQ(byConstructor->getGrade(), 200);
+  delete byConstructor;
+
+  std::unique_ptr<Bureaucrat> byMethod = std::make_unique<Bureaucrat>();
+  byMethod->setGrade(50);
+  EXPECT_EQ(byMethod->getGrade(), 50);
 }
