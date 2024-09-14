@@ -30,8 +30,8 @@ TEST(BureaucratAttributeTest, nameTest) {
 
 // Bureaucratがgradeを持つ
 TEST(BureaucratAttributeTest, gradeTest) {
-  std::unique_ptr<Bureaucrat> defaultName = std::make_unique<Bureaucrat>();
-  EXPECT_EQ(defaultName->getGrade(), DEFAULT_GRADE);
+  std::unique_ptr<Bureaucrat> defaultGrade = std::make_unique<Bureaucrat>();
+  EXPECT_EQ(defaultGrade->getGrade(), DEFAULT_GRADE);
 
   Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
   EXPECT_EQ(byConstructor->getGrade(), 20);
