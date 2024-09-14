@@ -98,3 +98,19 @@ TEST(FormExceptionTest, GradeOKTest) {
   EXPECT_NO_THROW(
       Form(DEFAULT_NAME, LOWEST_POSSIBLE_GRADE, LOWEST_POSSIBLE_GRADE));
 }
+
+// std::cout << form
+TEST_F(FormTest, InsertionTest) {
+  testing::internal::CaptureStdout();
+
+  std::cout << form;
+
+  std::string actual = testing::internal::GetCapturedStdout();
+  std::string expect =
+      "_name: " + form->getName() +
+      "\n_isSigned: " + intToString(form->getIsSigned()) +
+      "\n_gradeToSign: " + intToString(form->getGradeToSign()) +
+      "\n_gradeToExec" + intToString(form->getGradeToExec());
+
+  EXPECT_EQ(actual, expect);
+}
