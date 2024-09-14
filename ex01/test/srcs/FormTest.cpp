@@ -14,3 +14,9 @@ TEST(FormAttributeTest, nameTest) {
   EXPECT_EQ(byConstructor->getName(), "byConstructor");
   delete byConstructor;
 }
+
+// Formが_isSignedを持つ
+TEST(FormAttributeTest, isSignedTest) {
+  std::unique_ptr<Form> defaultIsSigned = std::make_unique<Form>();
+  EXPECT_EQ(defaultIsSigned->getIsSigned(), DEFAULT_IS_SIGNED);
+}
