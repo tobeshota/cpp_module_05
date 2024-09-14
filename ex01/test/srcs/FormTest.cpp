@@ -30,3 +30,13 @@ TEST(FormAttributeTest, gradeToSignTest) {
   EXPECT_EQ(byConstructor->getGradeToSign(), 20);
   delete byConstructor;
 }
+
+// Formが_gradeToExecを持つ
+TEST(FormAttributeTest, gradeToExecTest) {
+  std::unique_ptr<Form> defaultGradeToExec = std::make_unique<Form>();
+  EXPECT_EQ(defaultGradeToExec->getGradeToExec(), DEFAULT_GRADE_TO_EXEC);
+
+  Form* byConstructor = new Form("byConstructor", 20, 50);
+  EXPECT_EQ(byConstructor->getGradeToExec(), 50);
+  delete byConstructor;
+}
