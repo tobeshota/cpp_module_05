@@ -67,3 +67,16 @@ TEST(FormExceptionTest, gradeTooHighTest) {
   EXPECT_THROW(Form(DEFAULT_NAME, tooHigh, tooHigh),
                Form::GradeTooHighException);
 }
+
+// _gradeToSignが150より大きくなると例外が飛ぶ
+// _gradeToExecが150より大きくなると例外が飛ぶ
+TEST(FormExceptionTest, gradeTooLowTest) {
+  const int tooLow = LOWEST_POSSIBLE_GRADE + 1;
+
+  EXPECT_THROW(Form(DEFAULT_NAME, tooLow, DEFAULT_GRADE_TO_EXEC),
+               Form::GradeTooLowException);
+  EXPECT_THROW(Form(DEFAULT_NAME, DEFAULT_GRADE_TO_SIGN, tooLow),
+               Form::GradeTooLowException);
+  EXPECT_THROW(Form(DEFAULT_NAME, tooLow, tooLow),
+               Form::GradeTooLowException);
+}
