@@ -5,7 +5,7 @@ Bureaucrat::Bureaucrat() : _name(DEFAULT_NAME), _grade(DEFAULT_GRADE) {
             << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
   Bureaucrat::setGradeSafely(grade);
   std::cout << "(constructor)Bureaucrat " << _name << " has been created!"
             << std::endl;
