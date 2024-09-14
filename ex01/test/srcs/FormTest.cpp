@@ -125,4 +125,8 @@ TEST(FormMethodTest, beSignedTest) {
   // signerA(grade: 20) cannot sign formB(grade: 15)
   Form* formB = new Form("formB", 15, DEFAULT_GRADE_TO_EXEC);
   EXPECT_THROW(formB->beSigned(*signerA), Form::GradeTooLowException);
+
+  delete formA;
+  delete formB;
+  delete signerA;
 }
