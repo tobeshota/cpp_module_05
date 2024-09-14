@@ -83,7 +83,7 @@ TEST_F(BureaucratTest, InsertionTest) {
   std::string actual = testing::internal::GetCapturedStdout();
   // 望まれる標準出力を定義
   std::string expect = bureaucrat->getName() + ", bureaucrat grade " +
-                       std::to_string(bureaucrat->getGrade()) + "\n";
+                       intToString(bureaucrat->getGrade()) + "\n";
 
   // 出力が"hello world"であることを確認
   EXPECT_EQ(actual, expect);

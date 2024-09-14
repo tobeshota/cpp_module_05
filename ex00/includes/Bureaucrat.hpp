@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <sstream>
 #define DEFAULT_NAME "default"
 #define DEFAULT_GRADE 150
 #define HIGHEST_POSSIBLE_GRADE 1
@@ -47,5 +48,6 @@ class Bureaucrat {
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat* b);
+std::string intToString(const int num);
 
 #endif

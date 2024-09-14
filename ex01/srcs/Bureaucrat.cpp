@@ -52,7 +52,15 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat* b) {
-  os << b->getName() + ", bureaucrat grade " + std::to_string(b->getGrade()) +
+  os << b->getName() + ", bureaucrat grade " + intToString(b->getGrade()) +
             "\n";
   return os;
+}
+
+// int型をstring型に変換
+std::string intToString(const int num) {
+  std::stringstream ss;
+  ss << num;
+  std::string str = ss.str();
+  return str;
 }
