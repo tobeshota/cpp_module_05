@@ -26,6 +26,15 @@ class Form {
   bool getIsSigned(void) const;
   const int getGradeToSign(void) const;
   const int getGradeToExec(void) const;
+
+  class GradeTooHighException : public std::exception {
+   public:
+    virtual const char* what() const throw();
+  };
+  class GradeTooLowException : public std::exception {
+   public:
+    virtual const char* what() const throw();
+  };
 };
 
 #endif

@@ -21,10 +21,10 @@
 - [x] Formが_gradeToSignのゲッターgetGradeToSign()を持つ
 - [x] Formが_gradeToExecのゲッターgetGradeToExec()を持つ
 - [ ] _gradeToSignが150より大きくなると例外が飛ぶ
-- [ ] _gradeToSignが1より小さくなると例外が飛ぶ
+- [x] _gradeToSignが1より小さくなると例外が飛ぶ
 - [ ] _gradeToSignが1~150の範囲内のとき例外が飛ばない
 - [ ] _gradeToExecが150より大きくなると例外が飛ぶ
-- [ ] _gradeToExecが1より小さくなると例外が飛ぶ
+- [x] _gradeToExecが1より小さくなると例外が飛ぶ
 - [ ] _gradeToExecが1~150の範囲内のとき例外が飛ばない
 - [ ] std::cout << form
 - [ ] FormがbeSigined()を持つ

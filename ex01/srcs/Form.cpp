@@ -14,6 +14,13 @@ Form::Form(const std::string& name, const int gradeToSign,
       _isSigned(DEFAULT_IS_SIGNED),
       _gradeToSign(gradeToSign),
       _gradeToExec(gradeToExec) {
+  if (_gradeToSign < HIGHEST_POSSIBLE_GRADE ||
+      _gradeToExec < HIGHEST_POSSIBLE_GRADE)
+    throw Form::GradeTooHighException();
+  else if (_gradeToSign > LOWEST_POSSIBLE_GRADE ||
+           _gradeToExec > LOWEST_POSSIBLE_GRADE)
+    throw Form::GradeTooLowException();
+
   std::cout << "(constructor)Form " << _name << " has been created!"
             << std::endl;
 }
@@ -42,3 +49,11 @@ bool Form::getIsSigned(void) const { return _isSigned; }
 const int Form::getGradeToSign(void) const { return _gradeToSign; }
 
 const int Form::getGradeToExec(void) const { return _gradeToExec; }
+
+const char* Form::GradeTooHighException::what() const throw() {
+  return GradeTooHighExceptionMSG;
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+  return GradeTooLowExceptionMSG;
+}
