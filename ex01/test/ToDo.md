@@ -26,6 +26,5 @@
 - [x] _gradeToExecが150より大きくなると例外が飛ぶ
 - [x] _gradeToExecが1より小さくなると例外が飛ぶ
 - [x] _gradeToExecが1~150の範囲内のとき例外が飛ばない
-- [ ] _gradeToSign < _gradeToExecのとき例外が飛ぶ
 - [x] std::cout << form
 - [ ] FormがbeSigined()を持つ
