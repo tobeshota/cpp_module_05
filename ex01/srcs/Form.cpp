@@ -1,0 +1,44 @@
+#include "Form.hpp"
+
+Form::Form()
+    : _name(DEFAULT_NAME),
+      _isSigned(DEFAULT_IS_SIGNED),
+      _gradeToSign(DEFAULT_GRADE_TO_SIGN),
+      _gradeToExec(DEFAULT_GRADE_TO_EXEC) {
+  std::cout << "(constructor)Form Default constructor called" << std::endl;
+}
+
+Form::Form(const std::string& name, const int gradeToSign,
+           const int gradeToExec)
+    : _name(name),
+      _isSigned(DEFAULT_IS_SIGNED),
+      _gradeToSign(gradeToSign),
+      _gradeToExec(gradeToExec) {
+  std::cout << "(constructor)Form " << _name << " has been created!"
+            << std::endl;
+}
+
+Form::Form(const Form& other)
+    : _name(other._name),
+      _isSigned(other._isSigned),
+      _gradeToSign(other._gradeToSign),
+      _gradeToExec(other._gradeToExec) {
+  std::cout << "(constructor)Form Copy constructor called" << std::endl;
+  *this = other;
+}
+
+// 何もすることがない
+Form& Form::operator=(const Form& other) { return *this; }
+
+Form::~Form() {
+  std::cout << "(destructor)Form " << _name << " has been destroyed!"
+            << std::endl;
+}
+
+const std::string Form::getName(void) const { return _name; }
+
+bool Form::getIsSigned(void) const { return _isSigned; }
+
+const int Form::getGradeToSign(void) const { return _gradeToSign; }
+
+const int Form::getGradeToExec(void) const { return _gradeToExec; }

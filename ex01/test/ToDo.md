@@ -12,7 +12,7 @@
 - [ ] FormがsignForm()を持つ
 
 ### FormTest
-- [ ] Formが_nameを持つ
+- [x] Formが_nameを持つ
 - [ ] Formが_isSignedを持つ
 - [ ] Formが_gradeToSignを持つ
 - [ ] Formが_gradeToExecを持つ
