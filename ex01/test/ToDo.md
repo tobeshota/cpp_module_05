@@ -16,10 +16,10 @@
 - [x] Formが_isSignedを持つ
 - [x] Formが_gradeToSignを持つ
 - [x] Formが_gradeToExecを持つ
-- [ ] Formが_nameのゲッターGetName()を持つ
-- [ ] Formが_isSignedのゲッターGetIsSigned()を持つ
-- [ ] Formが_gradeToSignのゲッターGetGradeToSign()を持つ
-- [ ] Formが_gradeToExecのゲッターGetGradeToExec()を持つ
+- [x] Formが_nameのゲッターGetName()を持つ
+- [x] Formが_isSignedのゲッターGetIsSigned()を持つ
+- [x] Formが_gradeToSignのゲッターGetGradeToSign()を持つ
+- [x] Formが_gradeToExecのゲッターGetGradeToExec()を持つ
 - [ ] _gradeToSignが150より大きくなると例外が飛ぶ
 - [ ] _gradeToSignが1より小さくなると例外が飛ぶ
 - [ ] _gradeToSignが1~150の範囲内のとき例外が飛ばない
