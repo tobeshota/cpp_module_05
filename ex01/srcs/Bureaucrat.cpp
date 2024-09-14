@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 
+#include "Form.hpp"
+
 Bureaucrat::Bureaucrat() : _name(DEFAULT_NAME), _grade(DEFAULT_GRADE) {
   std::cout << "(constructor)Bureaucrat Default constructor called"
             << std::endl;
@@ -42,6 +44,17 @@ void Bureaucrat::setGradeSafely(int grade) {
 void Bureaucrat::incrementGrade(void) { setGradeSafely(_grade - 1); }
 
 void Bureaucrat::decrementGrade(void) { setGradeSafely(_grade + 1); }
+
+// void	Bureaucrat::signForm(Form &form)
+// void Form::beSigned(Bureaucrat &signer)
+void Bureaucrat::signForm(Form& form) {
+  bool didGetSigned = form.beSigned(*this);
+  if (didGetSigned == true)
+    std::cout << this->getName() + " signed " << form.getName() << std::endl;
+  else
+    std::cout << this->getName() + " couldn't sign " << form.getName()
+              << " because is has already signed" << std::endl;
+}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
   return GradeTooHighExceptionMSG;

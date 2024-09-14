@@ -35,7 +35,10 @@ Form::Form(const Form& other)
 }
 
 // 何もすることがない
-Form& Form::operator=(const Form& other) { return *this; }
+Form& Form::operator=(const Form& other) {
+  if (this == &other) return *this;
+  return *this;
+}
 
 Form::~Form() {
   std::cout << "(destructor)Form " << _name << " has been destroyed!"
@@ -46,16 +49,24 @@ const std::string Form::getName(void) const { return _name; }
 
 bool Form::getIsSigned(void) const { return _isSigned; }
 
-const int Form::getGradeToSign(void) const { return _gradeToSign; }
+int Form::getGradeToSign(void) const { return _gradeToSign; }
 
-const int Form::getGradeToExec(void) const { return _gradeToExec; }
+int Form::getGradeToExec(void) const { return _gradeToExec; }
+
+void Form::setIsSigned(bool isSigned) { _isSigned = isSigned; }
 
 bool Form::beSigned(Bureaucrat& signer) {
-  if (signer.getGrade() > this->getGradeToSign())
+  bool didGetSigned;
+
+  if (signer.getGrade() > this->getGradeToSign()) {
     throw Form::GradeTooLowException();
-  else
-    _isSigned = true;
-  return true;
+  } else if (_isSigned == true)
+    didGetSigned = false;
+  else {
+    didGetSigned = true;
+    setIsSigned(true);
+  }
+  return didGetSigned;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {

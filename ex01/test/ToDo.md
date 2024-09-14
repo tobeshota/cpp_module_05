@@ -9,7 +9,7 @@
 - [x] _gradeが1より小さくなると例外が飛ぶ
 - [x] _gradeが1~150の範囲内のとき例外が飛ばない
 - [x] std::cout << bureaucraft
-- [ ] BureaucratがsignForm()を持つ
+- [x] BureaucratがsignForm()を持つ
 
 ### FormTest
 - [x] Formが_nameを持つ
