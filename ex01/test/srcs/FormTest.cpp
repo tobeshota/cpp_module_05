@@ -55,7 +55,8 @@ TEST(FormAttributeTest, gradeToExecTest) {
   delete byConstructor;
 }
 
-// Test to ensure the constructor throws an exception for invalid input
+// _gradeToSignが150より大きくなると例外が飛ぶ
+// _gradeToExecが1より小さくなると例外が飛ぶ
 TEST(FormExceptionTest, gradeTooHighTest) {
   const int tooHigh = HIGHEST_POSSIBLE_GRADE - 1;
 
@@ -66,12 +67,3 @@ TEST(FormExceptionTest, gradeTooHighTest) {
   EXPECT_THROW(Form(DEFAULT_NAME, tooHigh, tooHigh),
                Form::GradeTooHighException);
 }
-
-// _gradeToSignが150より大きくなると例外が飛ぶ
-// TEST_F(FormTest, gradeTooHighTest) {
-//   int tooHighGrade = HIGHEST_POSSIBLE_GRADE - 1;
-
-//   // スローされる
-//   EXPECT_THROW(form->setGradeSafely(tooHighGrade),
-//                Bureaucrat::GradeTooHighException);
-// }
