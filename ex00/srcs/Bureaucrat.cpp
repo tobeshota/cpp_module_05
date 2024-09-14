@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other.getName()) {
-  std::cout << "(constructor)ClapTrap Copy constructor called" << std::endl;
+  std::cout << "(constructor)Bureaucrat Copy constructor called" << std::endl;
   *this = other;
 }
 
