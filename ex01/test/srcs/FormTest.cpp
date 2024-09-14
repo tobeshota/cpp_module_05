@@ -114,3 +114,15 @@ TEST_F(FormTest, InsertionTest) {
 
   EXPECT_EQ(actual, expect);
 }
+
+// FormがbeSigined()を持つ
+TEST(FormMethodTest, beSignedTest) {
+  // signerA(grade: 20) can sign formA(grade: 20)
+  Form* formA = new Form("formA", 20, DEFAULT_GRADE_TO_EXEC);
+  Bureaucrat* signerA = new Bureaucrat("signerA", 20);
+  EXPECT_NO_THROW(formA->beSigned(*signerA));
+
+  // signerA(grade: 20) cannot sign formB(grade: 15)
+  Form* formB = new Form("formB", 15, DEFAULT_GRADE_TO_EXEC);
+  EXPECT_THROW(formB->beSigned(*signerA), Form::GradeTooLowException);
+}

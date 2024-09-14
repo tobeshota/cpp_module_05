@@ -50,6 +50,14 @@ const int Form::getGradeToSign(void) const { return _gradeToSign; }
 
 const int Form::getGradeToExec(void) const { return _gradeToExec; }
 
+bool Form::beSigned(Bureaucrat& signer) {
+  if (signer.getGrade() > this->getGradeToSign())
+    throw Form::GradeTooLowException();
+  else
+    _isSigned = true;
+  return true;
+}
+
 const char* Form::GradeTooHighException::what() const throw() {
   return GradeTooHighExceptionMSG;
 }
