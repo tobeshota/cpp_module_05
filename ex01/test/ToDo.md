@@ -14,7 +14,7 @@
 ### FormTest
 - [x] Formが_nameを持つ
 - [x] Formが_isSignedを持つ
-- [ ] Formが_gradeToSignを持つ
+- [x] Formが_gradeToSignを持つ
 - [ ] Formが_gradeToExecを持つ
 - [ ] Formが_nameのゲッターGetName()を持つ
 - [ ] Formが_isSignedのゲッターGetIsSigned()を持つ
