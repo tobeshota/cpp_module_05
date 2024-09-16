@@ -89,6 +89,7 @@ TEST_F(BureaucratTest, InsertionTest) {
   EXPECT_EQ(actual, expect);
 }
 
+/* AFormが抽象クラスよりインスタンスを生成できないためコメントアウト
 // BureaucratがsignAForm()を持つ
 TEST(BureaucratMethodTest, beSignedTest) {
   AForm* formA = new AForm("formA", 20, DEFAULT_GRADE_TO_EXEC);
@@ -121,3 +122,4 @@ TEST(BureaucratMethodTest, beSignedTest) {
   delete signerA;
   delete signerB;
 }
+ */

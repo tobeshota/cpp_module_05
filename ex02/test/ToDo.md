@@ -33,8 +33,9 @@
 - [ ] AFormがvirtual void execute(Bureaucrat const & executor) const = 0 純粋仮想関数を持つ
 
 ### ShrubberyCreationFormTest
-- [ ] AFormクラスを継承するShrubberyCreationFormクラスが存在する
-- [ ] std::string targetを引数に持つコンストラクタがある
+- [x] AFormクラスを継承するShrubberyCreationFormクラスが存在する
+- [x] ShrubberyCreationFormクラスが_targetを持つ
+- [x] std::string targetを引数に持つコンストラクタがある
 - [ ] ShrubberyCreationFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
 
 ### RobotomyRequestFormTest

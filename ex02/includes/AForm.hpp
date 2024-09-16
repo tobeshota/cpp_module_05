@@ -10,6 +10,7 @@ class Bureaucrat;
 #define DEFAULT_IS_SIGNED false
 #define DEFAULT_GRADE_TO_SIGN 20
 #define DEFAULT_GRADE_TO_EXEC 10
+#define DEFAULT_TARGET "<target>"
 
 class AForm {
  private:
@@ -30,6 +31,7 @@ class AForm {
   int getGradeToExec(void) const;
   void setIsSigned(bool isSigned);
   bool beSigned(Bureaucrat& signer);
+  virtual void execute(Bureaucrat const& executor) const = 0;
 
   class GradeTooHighException : public std::exception {
    public:
