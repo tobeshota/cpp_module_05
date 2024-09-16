@@ -13,6 +13,7 @@ class AForm;
 #define LOWEST_POSSIBLE_GRADE 150
 #define GradeTooHighExceptionMSG "Grade Too High\n"
 #define GradeTooLowExceptionMSG "Grade Too Low\n"
+#define NoSignExceptionMSG "Form is not signed\n"
 
 class Bureaucrat {
  private:

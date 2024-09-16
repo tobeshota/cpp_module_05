@@ -35,6 +35,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
             << " has been destroyed!" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const& executor) const { ; }
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
+  if (executor.getGrade() > this->getGradeToExec())
+    throw Bureaucrat::GradeTooLowException();
+  else if (this->getIsSigned() == false)
+    throw AForm::NoSignException();
+  else {
+    std::ofstream outfile;
+    outfile.open(this->getTarget() + "_shrubbery", std::ios::out);
+    outfile << TREE;
+    outfile.close();
+  }
+}
 
 std::string ShrubberyCreationForm::getTarget(void) const { return _target; }

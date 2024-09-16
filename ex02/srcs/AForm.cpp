@@ -77,6 +77,10 @@ const char* AForm::GradeTooLowException::what() const throw() {
   return GradeTooLowExceptionMSG;
 }
 
+const char* AForm::NoSignException::what() const throw() {
+  return NoSignExceptionMSG;
+}
+
 std::ostream& operator<<(std::ostream& os, AForm* form) {
   os << "_name: " + form->getName() +
             "\n_isSigned: " + intToString(form->getIsSigned()) +

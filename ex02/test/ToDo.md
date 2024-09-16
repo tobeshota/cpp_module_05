@@ -30,13 +30,13 @@
 - [x] std::cout << form
 - [x] AFormがbeSigined()を持つ
 - [x] FormをAFormにする
-- [ ] AFormがvirtual void execute(Bureaucrat const & executor) const = 0 純粋仮想関数を持つ
+- [x] AFormがvirtual void execute(Bureaucrat const & executor) const = 0 純粋仮想関数を持つ
 
 ### ShrubberyCreationFormTest
 - [x] AFormクラスを継承するShrubberyCreationFormクラスが存在する
 - [x] ShrubberyCreationFormクラスが_targetを持つ
 - [x] std::string targetを引数に持つコンストラクタがある
-- [ ] ShrubberyCreationFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
+- [x] ShrubberyCreationFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
 
 ### RobotomyRequestFormTest
 - [ ] AFormクラスを継承するRobotomyRequestFormクラスが存在する
