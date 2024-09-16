@@ -89,29 +89,29 @@ TEST_F(BureaucratTest, InsertionTest) {
   EXPECT_EQ(actual, expect);
 }
 
-// BureaucratがsignForm()を持つ
+// BureaucratがsignAForm()を持つ
 TEST(BureaucratMethodTest, beSignedTest) {
-  Form* formA = new Form("formA", 20, DEFAULT_GRADE_TO_EXEC);
-  Form* formB = new Form("formB", 15, DEFAULT_GRADE_TO_EXEC);
+  AForm* formA = new AForm("formA", 20, DEFAULT_GRADE_TO_EXEC);
+  AForm* formB = new AForm("formB", 15, DEFAULT_GRADE_TO_EXEC);
   Bureaucrat* signerA = new Bureaucrat("signerA", 20);
   Bureaucrat* signerB = new Bureaucrat("signerB", 20);
 
   // signerA(grade: 20) signed formA(grade: 20)
   testing::internal::CaptureStdout();
-  signerA->signForm(*formA);
+  signerA->signAForm(*formA);
   std::string actual = testing::internal::GetCapturedStdout();
   std::string expect =
       signerA->getName() + " signed " + formA->getName() + "\n";
   EXPECT_EQ(actual, expect);
 
   // signerA(grade: 20) cannot sign formB(grade: 15)
-  EXPECT_THROW(signerA->signForm(*formB), Form::GradeTooLowException);
+  EXPECT_THROW(signerA->signAForm(*formB), AForm::GradeTooLowException);
 
   // signerB(grade: 20) couldn't sign formA(grade: 20) because formA has already
   // signed
   testing::internal::CaptureStdout();
   formA->setIsSigned(true);
-  signerB->signForm(*formA);
+  signerB->signAForm(*formA);
   std::string actualB = testing::internal::GetCapturedStdout();
   std::string expectB = signerB->getName() + " couldn't sign " +
                         formA->getName() + " because is has already signed\n";

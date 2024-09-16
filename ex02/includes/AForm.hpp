@@ -11,7 +11,7 @@ class Bureaucrat;
 #define DEFAULT_GRADE_TO_SIGN 20
 #define DEFAULT_GRADE_TO_EXEC 10
 
-class Form {
+class AForm {
  private:
   const std::string _name;
   bool _isSigned;
@@ -19,11 +19,11 @@ class Form {
   const int _gradeToExec;
 
  public:
-  Form();
-  Form(const std::string& name, const int gradeToSign, const int gradeToExec);
-  Form(const Form& other);
-  Form& operator=(const Form& other);
-  ~Form();
+  AForm();
+  AForm(const std::string& name, const int gradeToSign, const int gradeToExec);
+  AForm(const AForm& other);
+  AForm& operator=(const AForm& other);
+  ~AForm();
   const std::string getName(void) const;
   bool getIsSigned(void) const;
   int getGradeToSign(void) const;
@@ -41,6 +41,6 @@ class Form {
   };
 };
 
-std::ostream& operator<<(std::ostream& os, Form* form);
+std::ostream& operator<<(std::ostream& os, AForm* form);
 
 #endif

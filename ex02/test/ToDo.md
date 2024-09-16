@@ -9,17 +9,18 @@
 - [x] _gradeが1より小さくなると例外が飛ぶ
 - [x] _gradeが1~150の範囲内のとき例外が飛ばない
 - [x] std::cout << bureaucraft
-- [x] BureaucratがsignForm()を持つ
+- [x] BureaucratがsignAForm()を持つ
+- [ ] BureaucratがexecuteForm(Form const & form)を持つ．
 
-### FormTest
-- [x] Formが_nameを持つ
-- [x] Formが_isSignedを持つ
-- [x] Formが_gradeToSignを持つ
-- [x] Formが_gradeToExecを持つ
-- [x] Formが_nameのゲッターgetName()を持つ
-- [x] Formが_isSignedのゲッターgetIsSigned()を持つ
-- [x] Formが_gradeToSignのゲッターgetGradeToSign()を持つ
-- [x] Formが_gradeToExecのゲッターgetGradeToExec()を持つ
+### AFormTest
+- [x] AFormが_nameを持つ
+- [x] AFormが_isSignedを持つ
+- [x] AFormが_gradeToSignを持つ
+- [x] AFormが_gradeToExecを持つ
+- [x] AFormが_nameのゲッターgetName()を持つ
+- [x] AFormが_isSignedのゲッターgetIsSigned()を持つ
+- [x] AFormが_gradeToSignのゲッターgetGradeToSign()を持つ
+- [x] AFormが_gradeToExecのゲッターgetGradeToExec()を持つ
 - [x] _gradeToSignが150より大きくなると例外が飛ぶ
 - [x] _gradeToSignが1より小さくなると例外が飛ぶ
 - [x] _gradeToSignが1~150の範囲内のとき例外が飛ばない
@@ -27,4 +28,22 @@
 - [x] _gradeToExecが1より小さくなると例外が飛ぶ
 - [x] _gradeToExecが1~150の範囲内のとき例外が飛ばない
 - [x] std::cout << form
-- [x] FormがbeSigined()を持つ
+- [x] AFormがbeSigined()を持つ
+- [x] FormをAFormにする
+- [ ] AFormがvirtual void execute(Bureaucrat const & executor) const = 0 純粋仮想関数を持つ
+
+### ShrubberyCreationFormTest
+- [ ] AFormクラスを継承するShrubberyCreationFormクラスが存在する
+- [ ] std::string targetを引数に持つコンストラクタがある
+- [ ] ShrubberyCreationFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
+
+### RobotomyRequestFormTest
+- [ ] AFormクラスを継承するRobotomyRequestFormクラスが存在する
+- [ ] std::string targetを引数に持つコンストラクタがある
+- [ ] RobotomyRequestFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
+
+### PresidentialPardonFormTest
+- [ ] AFormクラスを継承するPresidentialPardonFormクラスが存在する
+- [ ] std::string targetを引数に持つコンストラクタがある
+- [ ] PresidentialPardonFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
+

@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name(DEFAULT_NAME), _grade(DEFAULT_GRADE) {
   std::cout << "(constructor)Bureaucrat Default constructor called"
@@ -45,9 +45,9 @@ void Bureaucrat::incrementGrade(void) { setGradeSafely(_grade - 1); }
 
 void Bureaucrat::decrementGrade(void) { setGradeSafely(_grade + 1); }
 
-// void	Bureaucrat::signForm(Form &form)
-// void Form::beSigned(Bureaucrat &signer)
-void Bureaucrat::signForm(Form& form) {
+// void	Bureaucrat::signAForm(AForm &form)
+// void AForm::beSigned(Bureaucrat &signer)
+void Bureaucrat::signAForm(AForm& form) {
   bool didGetSigned = form.beSigned(*this);
   if (didGetSigned == true)
     std::cout << this->getName() + " signed " << form.getName() << std::endl;
