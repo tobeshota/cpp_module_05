@@ -54,8 +54,8 @@ TEST(PresidentialPardonFormAttributeTest, targetTest) {
 TEST_F(PresidentialPardonFormTest, executeTest) {
   const std::string generatedFilePath = ppform->getTarget() + "_shrubbery";
   const std::string outfile = generatedFilePath;
-  Bureaucrat* gradeOKSigner = new Bureaucrat("gradeOKSigner", 42);
-  Bureaucrat* gradeTooLowSigner = new Bureaucrat("gradeTooLowSigner", 48);
+  Bureaucrat* gradeOKSigner = new Bureaucrat("gradeOKSigner", 5);
+  Bureaucrat* gradeTooLowSigner = new Bureaucrat("gradeTooLowSigner", 21);
 
   // 実行できる
   testing::internal::CaptureStdout();
