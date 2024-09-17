@@ -50,7 +50,7 @@ TEST(ShruberryCreationFormAttributeTest, targetTest) {
   delete byConstructor;
 }
 
-// ShrubberyCreationFormクラスが_targetを持つ
+// ShrubberyCreationFormクラスがexecuteメソッドを持つ
 TEST_F(ShrubberyCreationFormTest, executeTest) {
   const std::string generatedFilePath = scform->getTarget() + "_shrubbery";
   const std::string outfile = generatedFilePath;

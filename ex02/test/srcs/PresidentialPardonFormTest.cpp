@@ -50,7 +50,7 @@ TEST(PresidentialPardonFormAttributeTest, targetTest) {
   delete byConstructor;
 }
 
-// PresidentialPardonFormクラスが_targetを持つ
+// PresidentialPardonFormクラスがexecuteメソッドを持つ
 TEST_F(PresidentialPardonFormTest, executeTest) {
   const std::string generatedFilePath = ppform->getTarget() + "_shrubbery";
   const std::string outfile = generatedFilePath;

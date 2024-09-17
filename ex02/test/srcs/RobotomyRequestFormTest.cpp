@@ -46,7 +46,7 @@ TEST(RobotomyRequestFormAttributeTest, targetTest) {
   delete byConstructor;
 }
 
-// RobotomyRequestFormクラスが_targetを持つ
+// RobotomyRequestFormクラスがexecuteメソッドを持つ
 TEST_F(RobotomyRequestFormTest, executeTest) {
   const std::string generatedFilePath = rrform->getTarget() + "_shrubbery";
   const std::string outfile = generatedFilePath;
