@@ -90,7 +90,7 @@ TEST_F(BureaucratTest, InsertionTest) {
 }
 
 /* AFormが抽象クラスよりインスタンスを生成できないためコメントアウト
-// BureaucratがsignAForm()を持つ
+// BureaucratがsignForm()を持つ
 TEST(BureaucratMethodTest, beSignedTest) {
   AForm* formA = new AForm("formA", 20, DEFAULT_GRADE_TO_EXEC);
   AForm* formB = new AForm("formB", 15, DEFAULT_GRADE_TO_EXEC);
@@ -99,20 +99,20 @@ TEST(BureaucratMethodTest, beSignedTest) {
 
   // signerA(grade: 20) signed formA(grade: 20)
   testing::internal::CaptureStdout();
-  signerA->signAForm(*formA);
+  signerA->signForm(*formA);
   std::string actual = testing::internal::GetCapturedStdout();
   std::string expect =
       signerA->getName() + " signed " + formA->getName() + "\n";
   EXPECT_EQ(actual, expect);
 
   // signerA(grade: 20) cannot sign formB(grade: 15)
-  EXPECT_THROW(signerA->signAForm(*formB), AForm::GradeTooLowException);
+  EXPECT_THROW(signerA->signForm(*formB), AForm::GradeTooLowException);
 
   // signerB(grade: 20) couldn't sign formA(grade: 20) because formA has already
   // signed
   testing::internal::CaptureStdout();
   formA->setIsSigned(true);
-  signerB->signAForm(*formA);
+  signerB->signForm(*formA);
   std::string actualB = testing::internal::GetCapturedStdout();
   std::string expectB = signerB->getName() + " couldn't sign " +
                         formA->getName() + " because is has already signed\n";

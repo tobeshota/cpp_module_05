@@ -45,9 +45,9 @@ void Bureaucrat::incrementGrade(void) { setGradeSafely(_grade - 1); }
 
 void Bureaucrat::decrementGrade(void) { setGradeSafely(_grade + 1); }
 
-// void	Bureaucrat::signAForm(AForm &form)
+// void	Bureaucrat::signForm(AForm &form)
 // void AForm::beSigned(Bureaucrat &signer)
-void Bureaucrat::signAForm(AForm& form) {
+void Bureaucrat::signForm(AForm& form) {
   bool didGetSigned = form.beSigned(*this);
   if (didGetSigned == true)
     std::cout << this->getName() + " signed " << form.getName() << std::endl;
