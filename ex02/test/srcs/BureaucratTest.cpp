@@ -3,6 +3,7 @@
 #include <memory>  // スマートポインタ．スコープを抜けると、自動的にメモリが解放されるポインタ
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 // Bureaucratのテストクラス(テストフィクスチャクラス)
 class BureaucratTest : public ::testing::Test {
@@ -89,37 +90,35 @@ TEST_F(BureaucratTest, InsertionTest) {
   EXPECT_EQ(actual, expect);
 }
 
-/* AFormが抽象クラスよりインスタンスを生成できないためコメントアウト
 // BureaucratがsignForm()を持つ
 TEST(BureaucratMethodTest, beSignedTest) {
-  AForm* formA = new AForm("formA", 20, DEFAULT_GRADE_TO_EXEC);
-  AForm* formB = new AForm("formB", 15, DEFAULT_GRADE_TO_EXEC);
-  Bureaucrat* signerA = new Bureaucrat("signerA", 20);
-  Bureaucrat* signerB = new Bureaucrat("signerB", 20);
+  ShrubberyCreationForm* scform = new ShrubberyCreationForm("scform");
+  Bureaucrat* gradeOKSigner = new Bureaucrat("gradeOKSigner", 145);
+  Bureaucrat* gradeTooLowSigner = new Bureaucrat("gradeTooLowSigner", 150);
 
-  // signerA(grade: 20) signed formA(grade: 20)
+  // gradeOKSigner(grade: 145) signed scform(required grades to sign: 145)
   testing::internal::CaptureStdout();
-  signerA->signForm(*formA);
-  std::string actual = testing::internal::GetCapturedStdout();
-  std::string expect =
-      signerA->getName() + " signed " + formA->getName() + "\n";
-  EXPECT_EQ(actual, expect);
+  gradeOKSigner->signForm(*scform);
+  std::string actualA = testing::internal::GetCapturedStdout();
+  std::string expectA =
+      gradeOKSigner->getName() + " signed " + scform->getName() + "\n";
+  EXPECT_EQ(actualA, expectA);
 
-  // signerA(grade: 20) cannot sign formB(grade: 15)
-  EXPECT_THROW(signerA->signForm(*formB), AForm::GradeTooLowException);
+  // gradeTooLowSigner(grade: 150) cannot sign scform(required grades to sign:
+  // 145)
+  EXPECT_THROW(gradeTooLowSigner->signForm(*scform),
+               ShrubberyCreationForm::GradeTooLowException);
 
-  // signerB(grade: 20) couldn't sign formA(grade: 20) because formA has already
-  // signed
+  // gradeOKSigner(grade: 145) couldn't sign scform(required grades to sign:
+  // 145) because scform has already signed
   testing::internal::CaptureStdout();
-  formA->setIsSigned(true);
-  signerB->signForm(*formA);
+  scform->setIsSigned(true);
+  gradeOKSigner->signForm(*scform);
   std::string actualB = testing::internal::GetCapturedStdout();
-  std::string expectB = signerB->getName() + " couldn't sign " +
-                        formA->getName() + " because is has already signed\n";
+  std::string expectB = gradeOKSigner->getName() + " couldn't sign " +
+                        scform->getName() + " because is has already signed\n";
   EXPECT_EQ(actualB, expectB);
-  delete formA;
-  delete formB;
-  delete signerA;
-  delete signerB;
+  delete scform;
+  delete gradeOKSigner;
+  delete gradeTooLowSigner;
 }
- */
