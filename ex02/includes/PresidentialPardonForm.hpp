@@ -4,8 +4,8 @@
 #include "AForm.hpp"
 
 #define PRESIDENTIAL_PARDON_FORM_NAME "PresidentialPardonForm"
-#define PRESIDENTIAL_PARDON_FORM_GRADE_TO_SIGN 72
-#define PRESIDENTIAL_PARDON_FORM_GRADE_TO_EXEC 45
+#define PRESIDENTIAL_PARDON_FORM_GRADE_TO_SIGN 25
+#define PRESIDENTIAL_PARDON_FORM_GRADE_TO_EXEC 5
 #define PARDON(TARGET) ((TARGET) + "has been pardoned by Zaphod Beeblebrox\n")
 
 class PresidentialPardonForm : public AForm {
