@@ -3,16 +3,16 @@
 
 int main(void) {
   Bureaucrat* signerA;
-  RobotomyRequestForm* RRFormA;
+  RobotomyRequestForm* ffrom;
   int grade = 20;
 
   try {
     signerA = new Bureaucrat("you", grade);
-    RRFormA = new RobotomyRequestForm();
-    RRFormA->setIsSigned(true);
-    RRFormA->execute(*signerA);
+    ffrom = new RobotomyRequestForm();
+    ffrom->setIsSigned(true);
+    ffrom->execute(*signerA);
     delete signerA;
-    delete RRFormA;
+    delete ffrom;
   } catch (std::exception& e) {
     std::cerr << e.what();
   }
