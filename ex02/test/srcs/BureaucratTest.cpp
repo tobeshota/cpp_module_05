@@ -91,7 +91,7 @@ TEST_F(BureaucratTest, InsertionTest) {
 }
 
 // BureaucratがsignForm()を持つ
-TEST(BureaucratMethodTest, beSignedTest) {
+TEST(BureaucratMethodTest, signFormTest) {
   ShrubberyCreationForm* scform = new ShrubberyCreationForm("scform");
   Bureaucrat* gradeOKSigner = new Bureaucrat("gradeOKSigner", 145);
   Bureaucrat* gradeTooLowSigner = new Bureaucrat("gradeTooLowSigner", 150);
