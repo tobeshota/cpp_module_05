@@ -38,7 +38,7 @@ class ShrubberyCreationForm : public AForm {
   ShrubberyCreationForm(const ShrubberyCreationForm& other);
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
   virtual ~ShrubberyCreationForm();
-  void execute(Bureaucrat const& executor) const;
+  bool execute(Bureaucrat const& executor) const;
   std::string getTarget(void) const;
 };
 

@@ -40,7 +40,7 @@ static bool randomBool(void) {
   return std::rand() % 2 == 0;  // 50% chance to return true or false
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
+bool RobotomyRequestForm::execute(Bureaucrat const& executor) const {
   if (this->isAbleToExecute(executor) == true) {
     for (int i = 0; i < executor.getGrade(); i++)
       std::cout << DRILLING_NOISES << std::endl;
@@ -49,6 +49,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
     else
       std::cout << FAILURE_MSG(this->getTarget());
   }
+  return true;
 }
 
 std::ostream& operator<<(std::ostream& os, RobotomyRequestForm* rrform) {

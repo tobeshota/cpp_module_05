@@ -44,10 +44,11 @@ static bool randomBool(void) {
   return std::rand() % 2 == 0;  // 50% chance to return true or false
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const& executor) const {
+bool PresidentialPardonForm::execute(Bureaucrat const& executor) const {
   if (this->isAbleToExecute(executor) == true) {
     std::cout << PARDON(this->getTarget());
   }
+  return true;
 }
 
 std::ostream& operator<<(std::ostream& os, PresidentialPardonForm* ppform) {

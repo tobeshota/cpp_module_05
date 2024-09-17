@@ -35,13 +35,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
             << " has been destroyed!" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
+bool ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   if (this->isAbleToExecute(executor) == true) {
     std::ofstream outfile;
     outfile.open(this->getTarget() + "_shrubbery", std::ios::out);
     outfile << TREE;
     outfile.close();
   }
+  return true;
 }
 
 std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm* scform) {
