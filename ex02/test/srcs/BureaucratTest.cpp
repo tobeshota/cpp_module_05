@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include <memory>  // スマートポインタ．スコープを抜けると、自動的にメモリが解放されるポインタ
+// スマートポインタ．スコープを抜けると、自動的にメモリが解放されるポインタ
 
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -23,8 +23,9 @@ class BureaucratTest : public ::testing::Test {
 
 // Bureaucratがnameを持つ
 TEST(BureaucratAttributeTest, nameTest) {
-  std::unique_ptr<Bureaucrat> defaultName = std::make_unique<Bureaucrat>();
+  Bureaucrat* defaultName = new Bureaucrat();
   EXPECT_EQ(defaultName->getName(), DEFAULT_NAME);
+  delete defaultName;
 
   Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
   EXPECT_EQ(byConstructor->getName(), "byConstructor");
@@ -33,16 +34,18 @@ TEST(BureaucratAttributeTest, nameTest) {
 
 // Bureaucratがgradeを持つ
 TEST(BureaucratAttributeTest, gradeTest) {
-  std::unique_ptr<Bureaucrat> defaultGrade = std::make_unique<Bureaucrat>();
+  Bureaucrat* defaultGrade = new Bureaucrat();
   EXPECT_EQ(defaultGrade->getGrade(), DEFAULT_GRADE);
+  delete defaultGrade;
 
   Bureaucrat* byConstructor = new Bureaucrat("byConstructor", 20);
   EXPECT_EQ(byConstructor->getGrade(), 20);
   delete byConstructor;
 
-  std::unique_ptr<Bureaucrat> byMethod = std::make_unique<Bureaucrat>();
+  Bureaucrat* byMethod = new Bureaucrat();
   byMethod->setGradeSafely(50);
   EXPECT_EQ(byMethod->getGrade(), 50);
+  delete byMethod;
 }
 
 // _gradeが1より小さくなると例外が飛ぶ
@@ -134,12 +137,8 @@ TEST(BureaucratMethodTest, signFormTest) {
 TEST(BureaucratMethodTest, executeFormTest) {
   // 変数宣言
   Bureaucrat* grade50 = new Bureaucrat("grade50", 50);
-  std::unique_ptr<ShrubberyCreationForm> scform =
-      std::make_unique<ShrubberyCreationForm>();
-  std::unique_ptr<RobotomyRequestForm> rrform =
-      std::make_unique<RobotomyRequestForm>();
-  std::unique_ptr<PresidentialPardonForm> ppform =
-      std::make_unique<PresidentialPardonForm>();
+  ShrubberyCreationForm* scform = new ShrubberyCreationForm();
+  RobotomyRequestForm* rrform = new RobotomyRequestForm();
   // 実行できる
   grade50->signForm(*scform);
   testing::internal::CaptureStdout();
@@ -158,4 +157,6 @@ TEST(BureaucratMethodTest, executeFormTest) {
   EXPECT_THROW(grade50->executeForm(*rrform), Bureaucrat::GradeTooLowException);
 
   delete grade50;
+  delete scform;
+  delete rrform;
 }

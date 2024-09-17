@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <fstream>  //  for File I/O
-#include <memory>
 
 #include "PresidentialPardonForm.hpp"
 
@@ -20,13 +19,13 @@ class PresidentialPardonFormTest : public ::testing::Test {
 
 // AFormクラスを継承するPresidentialPardonFormクラスが存在する
 TEST(PresidentialPardonFormAttributeTest, inheritAFromTest) {
-  std::unique_ptr<PresidentialPardonForm> defaultName =
-      std::make_unique<PresidentialPardonForm>();
+  PresidentialPardonForm* defaultName = new PresidentialPardonForm();
   EXPECT_EQ(defaultName->getName(), PRESIDENTIAL_PARDON_FORM_NAME);
   EXPECT_EQ(defaultName->getGradeToSign(),
             PRESIDENTIAL_PARDON_FORM_GRADE_TO_SIGN);
   EXPECT_EQ(defaultName->getGradeToExec(),
             PRESIDENTIAL_PARDON_FORM_GRADE_TO_EXEC);
+  delete defaultName;
 
   PresidentialPardonForm* byConstructor =
       new PresidentialPardonForm("byConstructor");
@@ -40,9 +39,9 @@ TEST(PresidentialPardonFormAttributeTest, inheritAFromTest) {
 
 // PresidentialPardonFormクラスが_targetを持つ
 TEST(PresidentialPardonFormAttributeTest, targetTest) {
-  std::unique_ptr<PresidentialPardonForm> defaultName =
-      std::make_unique<PresidentialPardonForm>();
+  PresidentialPardonForm* defaultName = new PresidentialPardonForm();
   EXPECT_EQ(defaultName->getTarget(), DEFAULT_TARGET);
+  delete defaultName;
 
   PresidentialPardonForm* byConstructor =
       new PresidentialPardonForm("byConstructor");

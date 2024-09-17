@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <fstream>  //  for File I/O
-#include <memory>
 
 #include "RobotomyRequestForm.hpp"
 
@@ -20,11 +19,11 @@ class RobotomyRequestFormTest : public ::testing::Test {
 
 // AFormクラスを継承するRobotomyRequestFormクラスが存在する
 TEST(RobotomyRequestFormAttributeTest, inheritAFromTest) {
-  std::unique_ptr<RobotomyRequestForm> defaultName =
-      std::make_unique<RobotomyRequestForm>();
+  RobotomyRequestForm* defaultName = new RobotomyRequestForm();
   EXPECT_EQ(defaultName->getName(), ROBOTOMY_REQUEST_FORM_NAME);
   EXPECT_EQ(defaultName->getGradeToSign(), ROBOTOMY_REQUEST_FORM_GRADE_TO_SIGN);
   EXPECT_EQ(defaultName->getGradeToExec(), ROBOTOMY_REQUEST_FORM_GRADE_TO_EXEC);
+  delete defaultName;
 
   RobotomyRequestForm* byConstructor = new RobotomyRequestForm("byConstructor");
   EXPECT_EQ(byConstructor->getName(), ROBOTOMY_REQUEST_FORM_NAME);
@@ -37,8 +36,7 @@ TEST(RobotomyRequestFormAttributeTest, inheritAFromTest) {
 
 // RobotomyRequestFormクラスが_targetを持つ
 TEST(RobotomyRequestFormAttributeTest, targetTest) {
-  std::unique_ptr<RobotomyRequestForm> defaultName =
-      std::make_unique<RobotomyRequestForm>();
+  RobotomyRequestForm* defaultName = new RobotomyRequestForm();
   EXPECT_EQ(defaultName->getTarget(), DEFAULT_TARGET);
 
   RobotomyRequestForm* byConstructor = new RobotomyRequestForm("byConstructor");

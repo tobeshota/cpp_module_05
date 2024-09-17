@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 
-#include <memory>
-
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -21,8 +19,9 @@ class FormTest : public ::testing::Test {
 
 // Formが_nameを持つ
 TEST(FormAttributeTest, nameTest) {
-  std::unique_ptr<Form> defaultName = std::make_unique<Form>();
+  Form* defaultName = new Form();
   EXPECT_EQ(defaultName->getName(), DEFAULT_NAME);
+  delete defaultName;
 
   Form* byConstructor = new Form("byConstructor", 20, 50);
   EXPECT_EQ(byConstructor->getName(), "byConstructor");
@@ -31,13 +30,13 @@ TEST(FormAttributeTest, nameTest) {
 
 // Formが_isSignedを持つ
 TEST(FormAttributeTest, isSignedTest) {
-  std::unique_ptr<Form> defaultIsSigned = std::make_unique<Form>();
+  Form* defaultIsSigned = new Form();
   EXPECT_EQ(defaultIsSigned->getIsSigned(), DEFAULT_IS_SIGNED);
 }
 
 // Formが_gradeToSignを持つ
 TEST(FormAttributeTest, gradeToSignTest) {
-  std::unique_ptr<Form> defaultGradeToSign = std::make_unique<Form>();
+  Form* defaultGradeToSign = new Form();
   EXPECT_EQ(defaultGradeToSign->getGradeToSign(), DEFAULT_GRADE_TO_SIGN);
 
   Form* byConstructor = new Form("byConstructor", 20, 50);
@@ -47,8 +46,9 @@ TEST(FormAttributeTest, gradeToSignTest) {
 
 // Formが_gradeToExecを持つ
 TEST(FormAttributeTest, gradeToExecTest) {
-  std::unique_ptr<Form> defaultGradeToExec = std::make_unique<Form>();
+  Form* defaultGradeToExec = new Form();
   EXPECT_EQ(defaultGradeToExec->getGradeToExec(), DEFAULT_GRADE_TO_EXEC);
+  delete defaultGradeToExec;
 
   Form* byConstructor = new Form("byConstructor", 20, 50);
   EXPECT_EQ(byConstructor->getGradeToExec(), 50);

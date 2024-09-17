@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <fstream>  //  for File I/O
-#include <memory>
 
 #include "ShrubberyCreationForm.hpp"
 
@@ -20,13 +19,13 @@ class ShrubberyCreationFormTest : public ::testing::Test {
 
 // AFormクラスを継承するShrubberyCreationFormクラスが存在する
 TEST(ShruberryCreationFormAttributeTest, inheritAFromTest) {
-  std::unique_ptr<ShrubberyCreationForm> defaultName =
-      std::make_unique<ShrubberyCreationForm>();
+  ShrubberyCreationForm* defaultName = new ShrubberyCreationForm();
   EXPECT_EQ(defaultName->getName(), SHRUBBERY_CREATION_FORM_NAME);
   EXPECT_EQ(defaultName->getGradeToSign(),
             SHRUBBERY_CREATION_FORM_GRADE_TO_SIGN);
   EXPECT_EQ(defaultName->getGradeToExec(),
             SHRUBBERY_CREATION_FORM_GRADE_TO_EXEC);
+  delete defaultName;
 
   ShrubberyCreationForm* byConstructor =
       new ShrubberyCreationForm("byConstructor");
@@ -40,8 +39,7 @@ TEST(ShruberryCreationFormAttributeTest, inheritAFromTest) {
 
 // ShrubberyCreationFormクラスが_targetを持つ
 TEST(ShruberryCreationFormAttributeTest, targetTest) {
-  std::unique_ptr<ShrubberyCreationForm> defaultName =
-      std::make_unique<ShrubberyCreationForm>();
+  ShrubberyCreationForm* defaultName = new ShrubberyCreationForm();
   EXPECT_EQ(defaultName->getTarget(), DEFAULT_TARGET);
 
   ShrubberyCreationForm* byConstructor =
