@@ -81,3 +81,17 @@ TEST_F(ShrubberyCreationFormTest, executeTest) {
   delete gradeOKSigner;
   delete gradeTooLowSigner;
 }
+
+// std::cout << scform
+TEST_F(ShrubberyCreationFormTest, InsertionTest) {
+  testing::internal::CaptureStdout();
+  std::cout << scform;
+  std::string actual = testing::internal::GetCapturedStdout();
+  std::string expect =
+      "_name: " + scform->getName() + "\n_target" + scform->getTarget() +
+      "\n_isSigned: " + intToString(scform->getIsSigned()) +
+      "\n_gradeToSign: " + intToString(scform->getGradeToSign()) +
+      "\n_gradeToExec" + intToString(scform->getGradeToExec());
+
+  EXPECT_EQ(actual, expect);
+}

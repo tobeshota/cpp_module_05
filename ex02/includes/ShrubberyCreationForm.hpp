@@ -42,4 +42,6 @@ class ShrubberyCreationForm : public AForm {
   std::string getTarget(void) const;
 };
 
+std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm* scform);
+
 #endif

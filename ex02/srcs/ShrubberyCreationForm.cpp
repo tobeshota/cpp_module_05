@@ -44,4 +44,12 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   }
 }
 
+std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm* scform) {
+  os << "_name: " + scform->getName() + "\n_target" + scform->getTarget() +
+            "\n_isSigned: " + intToString(scform->getIsSigned()) +
+            "\n_gradeToSign: " + intToString(scform->getGradeToSign()) +
+            "\n_gradeToExec" + intToString(scform->getGradeToExec());
+  return os;
+}
+
 std::string ShrubberyCreationForm::getTarget(void) const { return _target; }

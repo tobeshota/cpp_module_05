@@ -37,6 +37,7 @@
 - [x] ShrubberyCreationFormクラスが_targetを持つ
 - [x] std::string targetを引数に持つコンストラクタがある
 - [x] ShrubberyCreationFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
+- [x] std::cout << scform
 
 ### RobotomyRequestFormTest
 - [x] AFormクラスを継承するRobotomyRequestFormクラスが存在する
