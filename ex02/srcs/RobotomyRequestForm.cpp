@@ -35,13 +35,19 @@ RobotomyRequestForm::~RobotomyRequestForm() {
             << " has been destroyed!" << std::endl;
 }
 
+static bool randomBool(void) {
+  std::srand(std::time(0));     // Seed the random number generator
+  return std::rand() % 2 == 0;  // 50% chance to return true or false
+}
+
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
-  if (executor.getGrade() > this->getGradeToExec())
-    throw Bureaucrat::GradeTooLowException();
-  else if (this->getIsSigned() == false)
-    throw AForm::NoSignException();
-  else {
-    ;
+  if (this->isAbleToExecute(executor) == true) {
+    for (int i = 0; i < executor.getGrade(); i++)
+      std::cout << DRILLING_NOISES << std::endl;
+    if (randomBool() == true)
+      std::cout << SUCCESS_MSG(this->getTarget());
+    else
+      std::cout << FAILURE_MSG(this->getTarget());
   }
 }
 

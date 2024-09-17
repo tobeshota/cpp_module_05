@@ -41,7 +41,7 @@
 ### RobotomyRequestFormTest
 - [x] AFormクラスを継承するRobotomyRequestFormクラスが存在する
 - [x] std::string targetを引数に持つコンストラクタがある
-- [ ] RobotomyRequestFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
+- [x] RobotomyRequestFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
 
 ### PresidentialPardonFormTest
 - [ ] AFormクラスを継承するPresidentialPardonFormクラスが存在する

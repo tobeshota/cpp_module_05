@@ -3,9 +3,19 @@
 
 #include "AForm.hpp"
 
-#define ROBOTOMY_REQUEST_FORM_NAME "ShrubberyCreationForm"
+#define ROBOTOMY_REQUEST_FORM_NAME "RobotomyRequestForm"
 #define ROBOTOMY_REQUEST_FORM_GRADE_TO_SIGN 72
 #define ROBOTOMY_REQUEST_FORM_GRADE_TO_EXEC 45
+#define DRILLING_NOISES "waiting...(dululululululululul)"
+#define RED "\x1b[31m"
+#define GREEN "\x1b[32m"
+#define DEFAULT "\x1b[0m\x1b[39m"
+#define SUCCESS_MSG(TARGET)                        \
+  (std::string(GREEN) + ">>>>>>>>>> " + (TARGET) + \
+   " HAS BEEN ROBOTOMIZED <<<<<<<<<<" + DEFAULT + "\n")
+#define FAILURE_MSG(TARGET)                      \
+  (std::string(RED) + ">>>>>>>>>> " + (TARGET) + \
+   " HAS FAILED TO ROBOTOMIZED <<<<<<<<<<" + DEFAULT + "\n")
 
 class RobotomyRequestForm : public AForm {
  private:

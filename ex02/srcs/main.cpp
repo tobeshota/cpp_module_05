@@ -1,18 +1,18 @@
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void) {
   Bureaucrat* signerA;
-  ShrubberyCreationForm* SCFormA;
+  RobotomyRequestForm* RRFormA;
   int grade = 20;
 
   try {
     signerA = new Bureaucrat("you", grade);
-    SCFormA = new ShrubberyCreationForm();
-    SCFormA->setIsSigned(true);
-    SCFormA->execute(*signerA);
+    RRFormA = new RobotomyRequestForm();
+    RRFormA->setIsSigned(true);
+    RRFormA->execute(*signerA);
     delete signerA;
-    delete SCFormA;
+    delete RRFormA;
   } catch (std::exception& e) {
     std::cerr << e.what();
   }
