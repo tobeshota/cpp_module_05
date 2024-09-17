@@ -76,3 +76,17 @@ TEST_F(RobotomyRequestFormTest, executeTest) {
   delete gradeOKSigner;
   delete gradeTooLowSigner;
 }
+
+// std::cout << rrform
+TEST_F(RobotomyRequestFormTest, InsertionTest) {
+  testing::internal::CaptureStdout();
+  std::cout << rrform;
+  std::string actual = testing::internal::GetCapturedStdout();
+  std::string expect =
+      "_name: " + rrform->getName() + "\n_target" + rrform->getTarget() +
+      "\n_isSigned: " + intToString(rrform->getIsSigned()) +
+      "\n_gradeToSign: " + intToString(rrform->getGradeToSign()) +
+      "\n_gradeToExec" + intToString(rrform->getGradeToExec());
+
+  EXPECT_EQ(actual, expect);
+}
