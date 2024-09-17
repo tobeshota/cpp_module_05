@@ -36,11 +36,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
-  if (executor.getGrade() > this->getGradeToExec())
-    throw Bureaucrat::GradeTooLowException();
-  else if (this->getIsSigned() == false)
-    throw AForm::NoSignException();
-  else {
+  if (this->isAbleToExecute(executor) == true) {
     std::ofstream outfile;
     outfile.open(this->getTarget() + "_shrubbery", std::ios::out);
     outfile << TREE;

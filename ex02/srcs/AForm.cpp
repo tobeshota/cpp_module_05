@@ -88,3 +88,11 @@ std::ostream& operator<<(std::ostream& os, AForm* form) {
             "\n_gradeToExec" + intToString(form->getGradeToExec());
   return os;
 }
+
+bool AForm::isAbleToExecute(Bureaucrat const& executor) const {
+  if (executor.getGrade() > this->getGradeToExec())
+    throw Bureaucrat::GradeTooLowException();
+  else if (this->getIsSigned() == false)
+    throw AForm::NoSignException();
+  return true;
+}
