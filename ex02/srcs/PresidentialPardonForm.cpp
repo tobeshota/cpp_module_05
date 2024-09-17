@@ -39,11 +39,6 @@ PresidentialPardonForm::~PresidentialPardonForm() {
             << " has been destroyed!" << std::endl;
 }
 
-static bool randomBool(void) {
-  std::srand(std::time(0));     // Seed the random number generator
-  return std::rand() % 2 == 0;  // 50% chance to return true or false
-}
-
 bool PresidentialPardonForm::execute(Bureaucrat const& executor) const {
   if (this->isAbleToExecute(executor) == true) {
     std::cout << PARDON(this->getTarget());

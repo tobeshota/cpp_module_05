@@ -1,19 +1,23 @@
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
+/**Required grades:
+ * ShrubberyCreationForm:  sign 145, exec 137
+ * RobotomyRequestForm:    sign 72,  exec 45
+ * PresidentialPardonForm: sign 25,  exec 5
+ */
 int main(void) {
-  Bureaucrat* signerA;
-  RobotomyRequestForm* ffrom;
-  int grade = 20;
-
+  const int grade = 1;
+  Bureaucrat* bureaucrat = new Bureaucrat("bureaucrat", grade);
+  PresidentialPardonForm* ppform = new PresidentialPardonForm("ppform");
   try {
-    signerA = new Bureaucrat("you", grade);
-    ffrom = new RobotomyRequestForm();
-    ffrom->setIsSigned(true);
-    ffrom->execute(*signerA);
-    delete signerA;
-    delete ffrom;
+    bureaucrat->signForm(*ppform);
+    bureaucrat->executeForm(*ppform);
   } catch (std::exception& e) {
     std::cerr << e.what();
   }
+  delete bureaucrat;
+  delete ppform;
 }

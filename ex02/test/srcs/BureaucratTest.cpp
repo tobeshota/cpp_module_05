@@ -3,6 +3,8 @@
 #include <memory>  // スマートポインタ．スコープを抜けると、自動的にメモリが解放されるポインタ
 
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 // Bureaucratのテストクラス(テストフィクスチャクラス)
@@ -121,4 +123,39 @@ TEST(BureaucratMethodTest, signFormTest) {
   delete scform;
   delete gradeOKSigner;
   delete gradeTooLowSigner;
+}
+
+// BureaucratがexecuteForm()を持つ
+/**Required grades:
+ * ShrubberyCreationForm:  sign 145, exec 137
+ * RobotomyRequestForm:    sign 72,  exec 45
+ * PresidentialPardonForm: sign 25,  exec 5
+ */
+TEST(BureaucratMethodTest, executeFormTest) {
+  // 変数宣言
+  Bureaucrat* grade50 = new Bureaucrat("grade50", 50);
+  std::unique_ptr<ShrubberyCreationForm> scform =
+      std::make_unique<ShrubberyCreationForm>();
+  std::unique_ptr<RobotomyRequestForm> rrform =
+      std::make_unique<RobotomyRequestForm>();
+  std::unique_ptr<PresidentialPardonForm> ppform =
+      std::make_unique<PresidentialPardonForm>();
+  // 実行できる
+  grade50->signForm(*scform);
+  testing::internal::CaptureStdout();
+  EXPECT_NO_THROW(grade50->executeForm(*scform));
+  std::string actualA = testing::internal::GetCapturedStdout();
+  std::string expectA =
+      grade50->getName() + " executed " + scform->getName() + "\n";
+  EXPECT_EQ(actualA, expectA);
+
+  // 実行できない(未署名のため)
+  scform->setIsSigned(false);
+  EXPECT_THROW(grade50->executeForm(*scform), AForm::NoSignException);
+
+  // 実行できない(grade不足のため)
+  EXPECT_NO_THROW(grade50->signForm(*rrform));
+  EXPECT_THROW(grade50->executeForm(*rrform), Bureaucrat::GradeTooLowException);
+
+  delete grade50;
 }

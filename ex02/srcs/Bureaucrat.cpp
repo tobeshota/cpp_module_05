@@ -54,6 +54,15 @@ void Bureaucrat::signForm(AForm& form) {
               << " because is has already signed" << std::endl;
 }
 
+void Bureaucrat::executeForm(AForm const& form) {
+  bool beAbleToExec = form.execute(*this);
+  if (beAbleToExec == true)
+    std::cout << this->getName() + " executed " << form.getName() << std::endl;
+  else
+    std::cout << this->getName() + " did not execute " << form.getName()
+              << std::endl;
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
   return GradeTooHighExceptionMSG;
 }

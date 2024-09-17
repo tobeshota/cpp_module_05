@@ -10,7 +10,7 @@
 - [x] _gradeが1~150の範囲内のとき例外が飛ばない
 - [x] std::cout << bureaucraft
 - [x] BureaucratがsignForm()を持つ
-- [ ] BureaucratがexecuteForm(Form const & form)を持つ．
+- [x] BureaucratがexecuteForm(Form const & form)を持つ
 
 ### AFormTest
 - [x] AFormが_nameを持つ
