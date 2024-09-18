@@ -38,7 +38,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 bool ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   if (this->isAbleToExecute(executor) == true) {
     std::ofstream outfile;
-    outfile.open((this->getTarget() + std::string("_shrubbery")), std::ios::out);
+    const std::string fileName = this->getTarget() + "_shrubbery";
+    outfile.open(fileName.c_str(), std::ios::out);
     outfile << TREE;
     outfile.close();
   }

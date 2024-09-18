@@ -62,7 +62,6 @@ fmt:
 debug: re
 
 address: re
-	@ valgrind --leak-check=full $NAME
 
 test:
 	@ make test -C test/
