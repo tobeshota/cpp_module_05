@@ -51,20 +51,21 @@ TEST(ShruberryCreationFormAttributeTest, targetTest) {
 // ShrubberyCreationFormクラスがexecuteメソッドを持つ
 TEST_F(ShrubberyCreationFormTest, executeTest) {
   const std::string generatedFilePath = scform->getTarget() + "_shrubbery";
-  const std::string outfile = generatedFilePath;
+  std::ifstream outfile(generatedFilePath);
+  // const std::string outfile = generatedFilePath;
   Bureaucrat* gradeOKSigner = new Bureaucrat("gradeOKSigner", 130);
   Bureaucrat* gradeTooLowSigner = new Bureaucrat("gradeTooLowSigner", 150);
 
   // 実行できる
   scform->setIsSigned(true);
   EXPECT_NO_THROW(scform->execute(*gradeOKSigner));
-  EXPECT_TRUE(std::__fs::filesystem::exists(outfile));
+  EXPECT_TRUE(outfile.good());
   std::ifstream infile(generatedFilePath);
   EXPECT_TRUE(infile.is_open());  // ファイルが正しく開かれているかを確認する
   std::string actual_content((std::istreambuf_iterator<char>(infile)),
                              std::istreambuf_iterator<char>());
   EXPECT_EQ(actual_content, TREE);
-  std::__fs::filesystem::remove(outfile);
+  std::remove(generatedFilePath.c_str());
 
   // 実行できない(未署名のため)
   scform->setIsSigned(false);
@@ -74,7 +75,7 @@ TEST_F(ShrubberyCreationFormTest, executeTest) {
   scform->setIsSigned(true);
   EXPECT_THROW(scform->execute(*gradeTooLowSigner),
                Bureaucrat::GradeTooLowException);
-  EXPECT_FALSE(std::__fs::filesystem::exists(outfile));
+  EXPECT_TRUE(outfile.good());
 
   delete gradeOKSigner;
   delete gradeTooLowSigner;

@@ -35,9 +35,10 @@ RobotomyRequestForm::~RobotomyRequestForm() {
             << " has been destroyed!" << std::endl;
 }
 
+// 50% chance to return true or false
 static bool randomBool(void) {
-  std::srand(std::time(0));     // Seed the random number generator
-  return std::rand() % 2 == 0;  // 50% chance to return true or false
+  std::srand(std::time(0));
+  return std::rand() % 2 == 0;
 }
 
 bool RobotomyRequestForm::execute(Bureaucrat const& executor) const {

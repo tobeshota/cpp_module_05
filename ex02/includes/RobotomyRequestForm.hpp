@@ -2,6 +2,8 @@
 #define ROBOTOMY_REQUEST_FORM_HPP
 
 #include "AForm.hpp"
+#include <cstdlib> // for rand()
+#include <ctime>   // for time()
 
 #define ROBOTOMY_REQUEST_FORM_NAME "RobotomyRequestForm"
 #define ROBOTOMY_REQUEST_FORM_GRADE_TO_SIGN 72
