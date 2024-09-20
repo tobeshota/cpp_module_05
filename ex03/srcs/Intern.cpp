@@ -2,9 +2,9 @@
 
 const t_formMap *Intern::getFormMap(void) {
 	const t_formMap formMap[] = {
-    {"ShrubberyCreationForm", Intern::createShrubberyCreationForm},
-    {"RobotomyRequestForm", Intern::createRobotomyRequestForm},
-    {"PresidentialPardonForm", Intern::createPresidentialPardonForm},
+    {"shrubbery creation", Intern::createShrubberyCreationForm},
+    {"robotomy request", Intern::createRobotomyRequestForm},
+    {"presidential pardon", Intern::createPresidentialPardonForm},
   };
   return formMap;
 }
