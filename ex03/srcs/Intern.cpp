@@ -46,7 +46,10 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& formTarg
     if (_formMap[i].formName == formName)
       return _formMap[i].createFormObjectFunction(formTarget);
   }
-  std::cerr << "error: invalid formName" << std::endl;
-  std::exit(EXIT_FAILURE);
+  throw Intern::NoFormExpception();
   return NULL;
+}
+
+const char* Intern::NoFormExpception::what() const throw() {
+  return "There is no form to be made!\n";
 }

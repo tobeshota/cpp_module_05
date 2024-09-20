@@ -27,6 +27,11 @@ class Intern {
   Intern& operator=(const Intern& other);
   ~Intern();
   AForm* makeForm(const std::string& formName, const std::string& formTarget);
+  class NoFormExpception : public std::exception {
+   public:
+    virtual const char* what() const throw();
+  };
+
 };
 
 #endif
