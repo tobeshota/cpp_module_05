@@ -50,3 +50,7 @@
 - [x] std::string targetを引数に持つコンストラクタがある
 - [x] PresidentialPardonFormクラスがvoid execute(Bureaucrat const & executor) const仮想関数を持つ
 - [x] std::cout << ppform
+
+### InternTest
+- [x] Intern::makeForm()がクラスを生成する
+- [x] Intern::makeForm()に不当な引数を入れたとき例外が投げられる
