@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
-// スマートポインタ．スコープを抜けると、自動的にメモリが解放されるポインタ
-#include <memory>
+
 
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
