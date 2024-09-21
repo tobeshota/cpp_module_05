@@ -2,14 +2,14 @@
 #define INTERN_HPP
 
 #include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 typedef struct s_formMap {
   const std::string formName;
-  void* (*createFormObjectFunction)(const std::string& );
-}              t_formMap;
+  void* (*createFormObjectFunction)(const std::string&);
+} t_formMap;
 
 void* createShrubberyCreationForm(const std::string& formTarget);
 void* createRobotomyRequestForm(const std::string& formTarget);
@@ -26,7 +26,6 @@ class Intern {
    public:
     virtual const char* what() const throw();
   };
-
 };
 
 #endif

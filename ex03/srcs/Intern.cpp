@@ -32,16 +32,17 @@ Intern::~Intern() {
   std::cout << "(destructor)Intern has been destroyed!" << std::endl;
 }
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& formTarget) {
+AForm* Intern::makeForm(const std::string& formName,
+                        const std::string& formTarget) {
   const t_formMap formMap[] = {
-    {"shrubbery creation", createShrubberyCreationForm},
-    {"robotomy request", createRobotomyRequestForm},
-    {"presidential pardon", createPresidentialPardonForm},
+      {"shrubbery creation", createShrubberyCreationForm},
+      {"robotomy request", createRobotomyRequestForm},
+      {"presidential pardon", createPresidentialPardonForm},
   };
 
-  for(size_t i = 0; i < sizeof(formMap); i++) {
+  for (size_t i = 0; i < sizeof(formMap); i++) {
     if (formMap[i].formName == formName)
-      return (AForm *)formMap[i].createFormObjectFunction(formTarget);
+      return (AForm*)formMap[i].createFormObjectFunction(formTarget);
   }
   throw Intern::NoFormExpception();
   return NULL;
