@@ -52,5 +52,7 @@
 - [x] std::cout << ppform
 
 ### InternTest
-- [x] Intern::makeForm()がクラスを生成する
-- [x] Intern::makeForm()に不当な引数を入れたとき例外が投げられる
+- [x] Intern::makeForm()の第一引数に"shrubbery creation"を指定するとShrubberyCreationFormクラスのオブジェクトが作られる
+- [x] Intern::makeForm()の第一引数に"robotomy request"を指定するとRobotomyRequestFormクラスのオブジェクトが作られる
+- [x] Intern::makeForm()の第一引数に"presidential pardon"を指定するとPresidentialPardonFormクラスのオブジェクトが作られる
+- [x] Intern::makeForm()の第一引数に不当な値を指定すると例外が投げられる

@@ -1,7 +1,8 @@
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 /**Required grades:
  * ShrubberyCreationForm:  sign 145, exec 137
@@ -9,15 +10,8 @@
  * PresidentialPardonForm: sign 25,  exec 5
  */
 int main(void) {
-  const int grade = 1;
-  Bureaucrat* bureaucrat = new Bureaucrat("bureaucrat", grade);
-  PresidentialPardonForm* ppform = new PresidentialPardonForm("ppform");
-  try {
-    bureaucrat->signForm(*ppform);
-    bureaucrat->executeForm(*ppform);
-  } catch (std::exception& e) {
-    std::cerr << e.what();
-  }
-  delete bureaucrat;
-  delete ppform;
+  Intern someRandomIntern;
+  RobotomyRequestForm* rrf = (RobotomyRequestForm *)someRandomIntern.makeForm("robotomy request", "Bender");
+  std::cout << rrf;
+  delete rrf;
 }

@@ -39,7 +39,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& formTarg
     {"presidential pardon", createPresidentialPardonForm},
   };
 
-  for(int i = 0; i < sizeof(formMap); i++) {
+  for(size_t i = 0; i < sizeof(formMap); i++) {
     if (formMap[i].formName == formName)
       return (AForm *)formMap[i].createFormObjectFunction(formTarget);
   }
