@@ -83,7 +83,7 @@ TEST_F(PresidentialPardonFormTest, InsertionTest) {
   std::cout << ppform;
   std::string actual = testing::internal::GetCapturedStdout();
   std::string expect =
-      "_name: " + ppform->getName() + "\n_target" + ppform->getTarget() +
+      "_name: " + ppform->getName() + "\n_target: " + ppform->getTarget() +
       "\n_isSigned: " + intToString(ppform->getIsSigned()) +
       "\n_gradeToSign: " + intToString(ppform->getGradeToSign()) +
       "\n_gradeToExec" + intToString(ppform->getGradeToExec());

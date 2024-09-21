@@ -87,7 +87,7 @@ TEST_F(ShrubberyCreationFormTest, InsertionTest) {
   std::cout << scform;
   std::string actual = testing::internal::GetCapturedStdout();
   std::string expect =
-      "_name: " + scform->getName() + "\n_target" + scform->getTarget() +
+      "_name: " + scform->getName() + "\n_target: " + scform->getTarget() +
       "\n_isSigned: " + intToString(scform->getIsSigned()) +
       "\n_gradeToSign: " + intToString(scform->getGradeToSign()) +
       "\n_gradeToExec" + intToString(scform->getGradeToExec());
