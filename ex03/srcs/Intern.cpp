@@ -1,27 +1,18 @@
 #include "Intern.hpp"
 
-const t_formMap *Intern::getFormMap(void) {
-	const t_formMap formMap[] = {
-    {"shrubbery creation", Intern::createShrubberyCreationForm},
-    {"robotomy request", Intern::createRobotomyRequestForm},
-    {"presidential pardon", Intern::createPresidentialPardonForm},
-  };
-  return formMap;
-}
-
-ShrubberyCreationForm* Intern::createShrubberyCreationForm(const std::string& formTarget) {
+void* createShrubberyCreationForm(const std::string& formTarget) {
   return new ShrubberyCreationForm(formTarget);
 }
 
-RobotomyRequestForm* Intern::createRobotomyRequestForm(const std::string& formTarget) {
+void* createRobotomyRequestForm(const std::string& formTarget) {
   return new RobotomyRequestForm(formTarget);
 }
 
-PresidentialPardonForm* createPresidentialPardonForm(const std::string& formTarget) {
+void* createPresidentialPardonForm(const std::string& formTarget) {
   return new PresidentialPardonForm(formTarget);
 }
 
-Intern::Intern() : _formMap(getFormMap()) {
+Intern::Intern() {
   std::cout << "(constructor)Intern Default constructor called" << std::endl;
 }
 
@@ -42,9 +33,15 @@ Intern::~Intern() {
 }
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& formTarget) {
-  for(int i = 0; i < sizeof(_formMap); i++) {
-    if (_formMap[i].formName == formName)
-      return _formMap[i].createFormObjectFunction(formTarget);
+  const t_formMap formMap[] = {
+    {"shrubbery creation", createShrubberyCreationForm},
+    {"robotomy request", createRobotomyRequestForm},
+    {"presidential pardon", createPresidentialPardonForm},
+  };
+
+  for(int i = 0; i < sizeof(formMap); i++) {
+    if (formMap[i].formName == formName)
+      return (AForm *)formMap[i].createFormObjectFunction(formTarget);
   }
   throw Intern::NoFormExpception();
   return NULL;

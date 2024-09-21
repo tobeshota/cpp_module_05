@@ -6,21 +6,16 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-// タイプ定義：クラスのインスタンスを生成するための関数ポインタ
-typedef AForm* (Intern::*CreateFormObjectFunction)(const std::string& );
-
 typedef struct s_formMap {
-    const std::string formName;
-    CreateFormObjectFunction createFormObjectFunction;
+  const std::string formName;
+  void* (*createFormObjectFunction)(const std::string& );
 }              t_formMap;
 
+void* createShrubberyCreationForm(const std::string& formTarget);
+void* createRobotomyRequestForm(const std::string& formTarget);
+void* createPresidentialPardonForm(const std::string& formTarget);
+
 class Intern {
- private:
-  const t_formMap *_formMap;
-  const t_formMap *Intern::getFormMap(void);
-  ShrubberyCreationForm* createShrubberyCreationForm(const std::string& formTarget);
-  RobotomyRequestForm* createRobotomyRequestForm(const std::string& formTarget);
-  PresidentialPardonForm* createPresidentialPardonForm(const std::string& formTarget);
  public:
   Intern();
   Intern(const Intern& other);
