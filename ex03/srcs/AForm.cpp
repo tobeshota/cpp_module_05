@@ -85,7 +85,7 @@ std::ostream& operator<<(std::ostream& os, AForm* form) {
   os << "_name: " + form->getName() +
             "\n_isSigned: " + intToString(form->getIsSigned()) +
             "\n_gradeToSign: " + intToString(form->getGradeToSign()) +
-            "\n_gradeToExec: " + intToString(form->getGradeToExec());
+            "\n_gradeToExec: " + intToString(form->getGradeToExec()) + "\n";
   return os;
 }
 

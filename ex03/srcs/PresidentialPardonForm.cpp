@@ -50,7 +50,7 @@ std::ostream& operator<<(std::ostream& os, PresidentialPardonForm* ppform) {
   os << "_name: " + ppform->getName() + "\n_target: " + ppform->getTarget() +
             "\n_isSigned: " + intToString(ppform->getIsSigned()) +
             "\n_gradeToSign: " + intToString(ppform->getGradeToSign()) +
-            "\n_gradeToExec: " + intToString(ppform->getGradeToExec());
+            "\n_gradeToExec: " + intToString(ppform->getGradeToExec()) + "\n";
   return os;
 }
 
