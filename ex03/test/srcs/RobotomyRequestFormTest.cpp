@@ -81,7 +81,7 @@ TEST_F(RobotomyRequestFormTest, InsertionTest) {
   std::cout << rrform;
   std::string actual = testing::internal::GetCapturedStdout();
   std::string expect =
-      "_name: " + rrform->getName() + "\n_target" + rrform->getTarget() +
+      "_name: " + rrform->getName() + "\n_target: " + rrform->getTarget() +
       "\n_isSigned: " + intToString(rrform->getIsSigned()) +
       "\n_gradeToSign: " + intToString(rrform->getGradeToSign()) +
       "\n_gradeToExec" + intToString(rrform->getGradeToExec());
