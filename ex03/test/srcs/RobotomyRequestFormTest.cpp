@@ -84,7 +84,7 @@ TEST_F(RobotomyRequestFormTest, InsertionTest) {
       "_name: " + rrform->getName() + "\n_target: " + rrform->getTarget() +
       "\n_isSigned: " + intToString(rrform->getIsSigned()) +
       "\n_gradeToSign: " + intToString(rrform->getGradeToSign()) +
-      "\n_gradeToExec" + intToString(rrform->getGradeToExec());
+      "\n_gradeToExec: " + intToString(rrform->getGradeToExec());
 
   EXPECT_EQ(actual, expect);
 }

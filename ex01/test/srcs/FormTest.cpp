@@ -110,7 +110,7 @@ TEST_F(FormTest, InsertionTest) {
       "_name: " + form->getName() +
       "\n_isSigned: " + intToString(form->getIsSigned()) +
       "\n_gradeToSign: " + intToString(form->getGradeToSign()) +
-      "\n_gradeToExec" + intToString(form->getGradeToExec());
+      "\n_gradeToExec: " + intToString(form->getGradeToExec());
 
   EXPECT_EQ(actual, expect);
 }

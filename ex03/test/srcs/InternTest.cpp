@@ -11,5 +11,5 @@ TEST(MakeFormTest, MakeRobotomyRequestFormTest) {
 	std::string expect = "_name: " + rrf->getName() + "\n_target: " + rrf->getTarget() +
       "\n_isSigned: " + intToString(rrf->getIsSigned()) +
       "\n_gradeToSign: " + intToString(rrf->getGradeToSign()) +
-      "\n_gradeToExec" + intToString(rrf->getGradeToExec());
+      "\n_gradeToExec: " + intToString(rrf->getGradeToExec());
 }

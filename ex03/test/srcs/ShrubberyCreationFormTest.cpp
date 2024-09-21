@@ -90,7 +90,7 @@ TEST_F(ShrubberyCreationFormTest, InsertionTest) {
       "_name: " + scform->getName() + "\n_target: " + scform->getTarget() +
       "\n_isSigned: " + intToString(scform->getIsSigned()) +
       "\n_gradeToSign: " + intToString(scform->getGradeToSign()) +
-      "\n_gradeToExec" + intToString(scform->getGradeToExec());
+      "\n_gradeToExec: " + intToString(scform->getGradeToExec());
 
   EXPECT_EQ(actual, expect);
 }

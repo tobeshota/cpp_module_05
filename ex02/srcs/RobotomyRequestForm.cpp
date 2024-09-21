@@ -57,7 +57,7 @@ std::ostream& operator<<(std::ostream& os, RobotomyRequestForm* rrform) {
   os << "_name: " + rrform->getName() + "\n_target: " + rrform->getTarget() +
             "\n_isSigned: " + intToString(rrform->getIsSigned()) +
             "\n_gradeToSign: " + intToString(rrform->getGradeToSign()) +
-            "\n_gradeToExec" + intToString(rrform->getGradeToExec());
+            "\n_gradeToExec: " + intToString(rrform->getGradeToExec());
   return os;
 }
 
