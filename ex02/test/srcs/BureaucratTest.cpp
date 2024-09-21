@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 
-
-
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"

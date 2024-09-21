@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 
-
-
 #include "Bureaucrat.hpp"
 
 // Bureaucratのテストクラス(テストフィクスチャクラス)
