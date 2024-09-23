@@ -56,4 +56,20 @@ TEST(MakeFormTest, MakeFormThrowTest) {
   Intern someRandomIntern;
   EXPECT_THROW(someRandomIntern.makeForm("noForm", "Bender"),
                Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("hogeForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("fugaForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("piyoForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("fooForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("barForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("fizzForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("buzzForm", "Bender"),
+               Intern::NoFormExpception);
+  EXPECT_THROW(someRandomIntern.makeForm("fizzbuzzForm", "Bender"),
+               Intern::NoFormExpception);
 }
